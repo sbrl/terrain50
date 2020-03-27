@@ -1,6 +1,6 @@
 "use strict";
 
-import Terrain50 from './Terrain50class.mjs';
+import Terrain50 from './Terrain50.mjs';
 import terrain50_blank from './Terrain50Blank.mjs';
 import terrain50_parse from './Terrain50Parse.mjs';
 import terrain50_merge from './Terrain50Merge.mjs';

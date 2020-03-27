@@ -1,20 +1,17 @@
 # Changlog
-This is the master changelog for [`applause-cli`](https://npmjs.org/packages/applause-cli).
+This is the master changelog for [`terrain50`](https://npmjs.org/packages/terrain50).
 
 Release template text:
 
 	Install or update from npm:
 
 	```bash
-	npm install --save applause-cli
+	npm install --save terrain50
 	```
 
 
-## v1.2
- - Fix missing `import` in `Subcommand.mjs`
-
 ## v1.1
- - Fix missing `export` in `Argument.mjs`
+ - Fix `import` pointing to the wrong place
 
 
 ## v1.0
