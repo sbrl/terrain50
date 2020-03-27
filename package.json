@@ -1,0 +1,35 @@
+{
+	"name": "terrain50",
+	"version": "1.0.0",
+	"description": "Library for parsing Ordnance Survey Digital Elevation Model files",
+	"main": "src/index.mjs",
+	"scripts": {
+		"test": "echo \"No tests have been implemented yet\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sbrl/terrain50.git"
+	},
+	"keywords": [
+		"terrain50",
+		"dem",
+		"digital",
+		"elevation",
+		"model",
+		"parsing"
+	],
+	"author": "Starbeamrainbowlabs",
+	"license": "MPL-2.0",
+	"bugs": {
+		"url": "https://github.com/sbrl/terrain50/issues"
+	},
+	"files": [
+		"src/",
+		"LICENSE",
+		"package.json"
+	],
+	"homepage": "https://github.com/sbrl/terrain50#readme",
+	"dependencies": {
+		"nnng": "^1.0.0"
+	}
+}
