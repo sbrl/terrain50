@@ -3,7 +3,7 @@
 import nnng from 'nnng';
 
 import l from './helpers/Log.mjs';
-import { write_safe } from './StreamHelpers.mjs';
+import { write_safe } from './helpers/StreamHelpers.mjs';
 
 import Terrain50ValidationMessage from './Terrain50ValidationMessage.mjs';
 
