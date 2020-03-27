@@ -1,10 +1,10 @@
 "use strict";
 
 import Terrain50 from './Terrain50.mjs';
-import terrain50_blank from './Terrain50Blank.mjs';
-import terrain50_parse from './Terrain50Parse.mjs';
-import terrain50_merge from './Terrain50Merge.mjs';
-import terrain50_validate from './Terrain50Validate.mjs';
+import terrain50_blank from './static/Terrain50Blank.mjs';
+import terrain50_parse from './static/Terrain50Parse.mjs';
+import terrain50_merge from './static/Terrain50Merge.mjs';
+import terrain50_validate from './static/Terrain50Validate.mjs';
 
 Terrain50.Blank = terrain50_blank;
 Terrain50.Parse = terrain50_parse;
