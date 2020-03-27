@@ -13,6 +13,7 @@ Release template text:
 ## v1.2
 - Fix more `import`s pointing to the wrong places
 
+
 ## v1.1
 - Fix `import` pointing to the wrong place
 
