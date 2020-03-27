@@ -16,7 +16,7 @@ NODATA_value -9999
 86 77 76 79 (.....)
 ```
 
-This package makes it bearable. See also [terrain50-cli](https://npmjs.org/package/terrain5-cli), the command-line interface for this library.
+This package makes it bearable. See also [terrain50-cli](https://npmjs.org/package/terrain50-cli), the command-line interface for this library.
 
  - **Current version:** ![current npm version - see the GitHub releases](https://img.shields.io/npm/v/terrain50)
  - **API Docs:** (coming soon)
