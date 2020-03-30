@@ -31,5 +31,8 @@
 	"homepage": "https://github.com/sbrl/terrain50#readme",
 	"dependencies": {
 		"nnng": "^1.0.0"
+	},
+	"devDependencies": {
+		"documentation": "^12.1.4"
 	}
 }
