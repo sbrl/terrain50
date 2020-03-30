@@ -4,11 +4,16 @@ import Terrain50 from '../Terrain50.mjs';
 
 /**
  * Parses a Terrain50 instance from a string.
- * See https://en.wikipedia.org/wiki/Esri_grid for more information on the 
+ * See https://en.wikipedia.org/wiki/Esri_grid for more information on the
  * supported format.
- * See also Terrain50.Merge() for merging multiple instances (format 
+ * 
+ * See also `Terrain50.Merge()` for merging multiple instances (format 
  * restrictions apply).
- * @param	{string}	str	The string to parse.
+ * @example
+ * import fs from 'fs';
+ * import Terrain50 from 'terrain50';
+ * let new_instance = Terrain50.Parse(fs.readFileSync("path/to/file.asc", "utf-8"));
+ * @param	{string}	str		The string to parse.
  * @return	{Terrain50}	The parsed string as a Terrain50 object.
  */
 function terrain50_parse(str) {

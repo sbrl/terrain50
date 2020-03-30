@@ -8,28 +8,54 @@ import { write_safe } from './helpers/StreamHelpers.mjs';
 import Terrain50ValidationMessage from './Terrain50ValidationMessage.mjs';
 
 /**
- * Represents a single Terrain50 tile.
+ * Represents a single Terrain50 tile..
+ * Note that this does NOT fill it with data - meta or otherwise. It simply
+ * creates the necessary data structures to hold such data.
+ * See Terrain50.Parse() (a static method) for parsing an serialised Terrain50 string.
  */
 class Terrain50 {
-	/**
-	 * Instantiates a new Terrain50 empty instance.
-	 * Note that this does NOT fill it with data - meta or otherwise. It simply
-	 * creates the necessary data structures to hold such data.
-	 * See Terrain50.Parse() for parsing an serialised Terrain50 string.
-	 */
 	constructor(was_blank = false) {
-		/*
+		/**
 		 * The Terrain50 metadata. Currently known possible values:
-		 * ncols 200			The number of columns the data has
-		 * nrows 200			The number of rows the data has
-		 * xllcorner 440000		The x-coordinate on the OS National Grid of the left-hand-side
-		 * yllcorner 410000		The y-coordinate on the OS National Grid of the bottom edge
-		 * cellsize 50			The interval (in metres, we assume) between individual pixels in the file.
-		 * NODATA_value			If a pixel holds this value, there is no data available for that pixel.
+		 * 
+		 * Example source string	| Meaning
+		 * -------------------------|----------------------------------------
+		 * `ncols 200`				| The number of columns the data has
+		 * `nrows 200`				| The number of rows the data has
+		 * `xllcorner 440000`		| The x-coordinate on the OS National Grid of the left-hand-side
+		 * `yllcorner 410000`		| The y-coordinate on the OS National Grid of the bottom edge
+		 * `cellsize 50`			| The interval (in metres, we assume) between individual pixels in the file.
+		 * `NODATA_value -9999`		| If a pixel holds this value, there is no data available for that pixel.
+		 * 
+		 * Note that some programs (* cough * HAIL-CAESAR * cough *) require these values to be in the *exact* order as above. `terrain50` is capable of parsing them regardless of their order or location in the file, but other programs aren't so forgiving.
 		 *
+		 * Note also that some programs also don't support the  NODATA_value header meta item, so you may need to delete this (`delete my_instance.meta.NODATA_value`) before saving it for use in these programs.
+		 * 
 		 * For more information, see https://en.wikipedia.org/wiki/Esri_grid
+		 *
+		 * @example <caption>Example object for the above table</caption>
+		 * {
+		 * 	ncols: 200,
+		 * 	nrows: 200,
+		 * 	xllcorner: 440000,
+		 * 	yllcorner: 410000
+		 * 	cellsize: 50,
+		 * 	NODATA_value: -9999 // May or maynot be present, depending on the input file
+		 * }
 		 */
 		this.meta = {};
+		/**
+		 * The 2D array of numbers containing the data that this Terrain50
+		 * instance contains.
+		 * 
+		 *  - Each top-level item in the array is a row (starting from the top).
+		 *  - Each array contains values from left-right.
+		 * @example <caption>Referencing values</caption>
+		 * let heightmap = Terrain50.Parse(some_string);
+		 * let x = 3, y = 4;
+		 * console.log(`Value at (${x}, ${y}): ${heightmap[y][x]}`);
+		 * @type {Array}
+		 */
 		this.data = [];
 		
 		/**
@@ -38,8 +64,11 @@ class Terrain50 {
 		 */
 		this.was_blank = was_blank;
 		
-		// The string to use to denote newlines when serialising.
-		// Note that this is NOT determined from the input file.
+		/**
+		 * The string to use to denote newlines when serialising.
+		 * Note that this is NOT determined from the input file.
+		 * @type {String}
+		 */
 		this.newline = "\n";
 	}
 	
@@ -216,6 +245,7 @@ class Terrain50 {
 	 * Scale up handler - don't call this directly.
 	 * You probably want the regular scale() method.
 	 * @param  {number} scale_factor The positive integer value to scale by.
+	 * @private
 	 */
 	__scale_up(scale_factor) {
 		let new_data = [];
@@ -234,6 +264,13 @@ class Terrain50 {
 	
 	/**
 	 * Serialises this Terrain50 and writes it to a stream.
+	 * Note that the stream is *not* closed automatically - this must be done manually.
+	 * @example
+	 * import fs from 'fs';
+	 * // ....
+	 * let output = fs.createWriteStream("path/to/output.asc");
+	 * my_instance.serialise(output);
+	 * output.end(); // Don't forget to end the stream - this method  doesn't do this automatically
 	 * @param	{stream.Writable}	stream	The writable stream to write it to as we serialise it.
 	 */
 	async serialise(stream) {
@@ -299,6 +336,21 @@ class Terrain50 {
 		return errors;
 	}
 	
+	/**
+	 * Convert this Terrain50 instance into a GeoJSON feature.
+	 * Useful for debugging, as it can (almost) be pasted into http://geojson.io/ to quickly visualise it with minimal effort.
+	 * @example
+	 * // .....
+	 * let geojson = {
+	 * 	type: "FeatureCollection",
+	 * 	features: []
+	 * };
+	 * for(let next in my_instances) {
+	 * 	geojson.features.push(next.to_geojson_feature());
+	 * }
+	 * console.log(JSON.stringify(geojson));
+	 * @return {object}	This Terrain50 instance, as a GeoJSON feature.
+	 */
 	to_geojson_feature() {
 		let offset_x = this.meta.ncols * this.meta.cellsize,
 			offset_y = this.meta.nrows * this.meta.cellsize

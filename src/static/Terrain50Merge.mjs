@@ -8,10 +8,24 @@ import terrain50_blank from './Terrain50Blank.mjs';
 /**
  * Merges multiple Terrain50 instances.
  * Note that they MUST be a rectangle overall. Gaps in tiles are filled in though.
+ * 
  * Note also that all tiles MUST be the same height and width. Expect odd results if they aren't!
+ * 
  * In addition, all cells MUST have an identical pixel size (cellsize).
- * NODATA_value MUST NOT be present in any input files. If it is, then it will be ignored and a different value used instead!
- * @param	{[Terrain50]}	tiles	The tiles to merge
+ * 
+ * `NODATA_value` MUST NOT be present in any input files. If it is, then it will be ignored and a different value used instead!
+ * @example <caption>Basic usage</caption>
+ * import Terrain50 from 'terrain50';
+ * // ....
+ * let new_instance = Terrain50.Merge(
+ * 	instance1,
+ * 	instance2
+ * 	//, instanceN
+ * );
+ * @example <caption>Using the spread operator</caption>
+ * // ....
+ * let big = Terrain50.Merge(...array_of_terrain50_instances);
+ * @param	{Terrain50}	tiles	The tiles to merge
  * @return	{Terrain50}		1 big Terrain50 instance representing all of the input instances.
  */
 function terrain50_merge(...tiles) {

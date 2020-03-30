@@ -7,21 +7,25 @@ import Terrain50ValidationMessage from '../Terrain50ValidationMessage.mjs';
 /**
  * Checks a Terrain50 string for errors.
  * Possible error messages:
+ * 
  * Code		| Meaning
  * ---------|------------------------------------------------------------------
- * TE001	| Invalid number of elements on metadata header line
- * TE002	| Found unexpected metadata header line after X rows of data
- * TE003	| Data rows have differing numbers of columns
- * TE004	| Required metadata header not found
- * TE005	| Actual row count does not match metadata
- * TE006	| Actual column count does not match metadata
- * TE007	| No data rows detected
- * TE008	| Seen more than 1 column count
- * 
- * TW001	| Unknown metadata header key
- * TW002	| Invalid metadata header value
+ * `TE001`	| Invalid number of elements on metadata header line
+ * `TE002`	| Found unexpected metadata header line after X rows of data
+ * `TE003`	| Data rows have differing numbers of columns
+ * `TE004`	| Required metadata header not found
+ * `TE005`	| Actual row count does not match metadata
+ * `TE006`	| Actual column count does not match metadata
+ * `TE007`	| No data rows detected
+ * `TE008`	| Seen more than 1 column count
+ * `TW001`	| Unknown metadata header key
+ * `TW002`	| Invalid metadata header value
+ * @example
+ * import fs from 'fs';
+ * import Terrain50 from 'terrain50';
+ * let errors = Terrain50.Validate(fs.readFileSync("path/to/file.asc", "utf-8"));
  * @param	{string}	str	The source string to check.
- * @return	{Terrain50ValidationMessage[]}	A list of validation errors found.
+ * @return	{Terrain50ValidationMessage[]}	A list of validation errors (if any) found.
  */
 function terrain50_validate(str) {
 	let errors = [];

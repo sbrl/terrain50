@@ -14,6 +14,7 @@ const LOG_LEVELS = {
 /**
  * Provides a simple logging utility. Depends on Ansi.mjs, and originated in my
  * personal project woppleblox (which may or may not actually get finished).
+ * @private
  */
 class Log {
 	constructor() {

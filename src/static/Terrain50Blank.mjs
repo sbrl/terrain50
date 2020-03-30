@@ -4,7 +4,11 @@ import Terrain50 from '../Terrain50.mjs';
 
 /**
  * Creates a prefilled blank Terrain50 instance.
- * @param  {object}		meta	The metadata of the instance to create
+ * @example
+ * import Terrain50 from 'terrain50';
+ * // ....
+ * let new_instance = Terrain50.Blank(some_metadata_here);
+ * @param  {object}		meta	The metadata of the instance to create. See Terrain50.meta for more information.
  * @return {Terrain50}	A new blank instance.
  */
 function terrain50_blank(meta) {

@@ -5,6 +5,7 @@
  * @param	{stream.Writable}			stream_out	The writable stream to write to.
  * @param	{string|Buffer|Uint8Array}	data		The data to write.
  * @return	{Promise}	A promise that resolves when writing is complete.
+ * @private
  */
 function write_safe(stream_out, data) {
 	return new Promise(function (resolve, reject) {
