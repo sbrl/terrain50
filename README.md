@@ -19,7 +19,7 @@ NODATA_value -9999
 This package makes it bearable. See also [terrain50-cli](https://npmjs.org/package/terrain50-cli), the command-line interface for this library.
 
  - **Current version:** ![current npm version - see the GitHub releases](https://img.shields.io/npm/v/terrain50)
- - **API Docs:** (coming soon)
+ - **API Docs:** https://starbeamrainbowlabs.com/code/terrain50/
  - **Changelog:** https://github.com/sbrl/terrain50/blob/master/Changelog.md
 
 
