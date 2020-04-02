@@ -9,7 +9,10 @@ Release template text:
 	npm install --save terrain50
 	```
 
-	
+
+## v1.3.1
+- Update README
+
 ## v1.3
 - Fix even moar `import`s pointing to the wrong places
 
