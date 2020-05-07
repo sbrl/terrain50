@@ -13,7 +13,7 @@ import Terrain50 from '../Terrain50.mjs';
  * import fs from 'fs';
  * import Terrain50 from 'terrain50';
  * let new_instance = Terrain50.Parse(fs.readFileSync("path/to/file.asc", "utf-8"));
- * @param	{string}	str		The string to parse.
+ * @param	{string}	str		The string to parse
  * @return	{Terrain50}	The parsed string as a Terrain50 object.
  */
 function terrain50_parse(str) {
