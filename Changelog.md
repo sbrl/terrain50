@@ -10,8 +10,13 @@ Release template text:
 	```
 
 
+## v1.4
+- Add new `Terrain50.ParseStream` function for parsing a stream of multiple concatenated files
+
+
 ## v1.3.1
 - Update README
+
 
 ## v1.3
 - Fix even moar `import`s pointing to the wrong places
