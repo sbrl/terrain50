@@ -10,24 +10,28 @@ Release template text:
 	```
 
 
+## v1.4.1
+ - Bugfix: Fix `cellsize` when scaling
+
+
 ## v1.4
-- Add new `Terrain50.ParseStream` function for parsing a stream of multiple concatenated files
+ - Add new `Terrain50.ParseStream` function for parsing a stream of multiple concatenated files
 
 
 ## v1.3.1
-- Update README
+ - Update README
 
 
 ## v1.3
-- Fix even moar `import`s pointing to the wrong places
+ - Fix even moar `import`s pointing to the wrong places
 
 
 ## v1.2
-- Fix more `import`s pointing to the wrong places
+ - Fix more `import`s pointing to the wrong places
 
 
 ## v1.1
-- Fix `import` pointing to the wrong place
+ - Fix `import` pointing to the wrong place
 
 
 ## v1.0

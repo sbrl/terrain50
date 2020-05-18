@@ -206,7 +206,7 @@ class Terrain50 {
 			return; // Nothing to do - scale factor 1 = keep it the same
 		
 		// Handle the metadata
-		this.meta.cellsize *= scale_factor;
+		this.meta.cellsize *= 1 / scale_factor; // As we reduce the number of cells, the cells themselves get bigger
 		this.meta.nrows *= scale_factor;
 		this.meta.ncols *= scale_factor;
 	}
