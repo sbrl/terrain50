@@ -34,6 +34,6 @@
 		"nnng": "^1.0.0"
 	},
 	"devDependencies": {
-		"documentation": "^12.1.4"
+		"documentation": "^13.0.0"
 	}
 }
