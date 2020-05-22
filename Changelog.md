@@ -12,6 +12,7 @@ Release template text:
 
 ## Next version (unreleased)
  - Add convenient import aliases
+ - Fix crash in both ParseStream() and Parse() when passed junk
 
 
 ## v1.4.1

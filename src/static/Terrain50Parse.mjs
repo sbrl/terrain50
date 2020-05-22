@@ -30,6 +30,23 @@ function terrain50_parse(str) {
 			result.data.push(parts.map(parseFloat));
 		}
 		else {
+			if(parts.length < 2) {
+				// Something fishy is going on here
+				parts[1] = null;
+				l.warn(`Warning: Setting a default value of null for metadata key`, parts[0]);
+			}
+			
+			// Handle metadata values with spaces in them
+			if(parts.length > 2) {
+				// Oops, too many parts - squish them back again
+				// Remove the pieces - what a mess
+				parts.length = 1;
+				// Extract the original full metadata value
+				// We trim the end here, since we can guarantee that we don't have anything on the beginning
+				let space_match = line.match(/\s+/);
+				parts[1] = line.substr(space_match.index + space_match[0].length).trimEnd();
+			}
+			
 			// It's a metadata line
 			result.meta[parts[0]] = parts[1].search(/^[0-9-.]+$/) == -1 ? parts[1] : parseFloat(parts[1]);
 		}

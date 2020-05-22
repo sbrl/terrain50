@@ -3,6 +3,7 @@
 import nexline from 'nexline';
 
 import Terrain50 from '../Terrain50.mjs';
+import l from '../helpers/Log.mjs';
 
 /**
  * Parses a Terrain50 instance from a string.
@@ -47,6 +48,24 @@ async function* terrain50_parse_stream(stream) {
 				yield result;
 				result = new Terrain50();
 			}
+			
+			if(parts.length < 2) {
+				// Something fishy is going on here
+				parts[1] = null;
+				l.warn(`Warning: Setting a default value of null for metadata key`, parts[0]);
+			}
+			
+			// Handle metadata values with spaces in them
+			if(parts.length > 2) {
+				// Oops, too many parts - squish them back again
+				// Remove the pieces - what a mess
+				parts.length = 1;
+				// Extract the original full metadata value
+				// We trim the end here, since we can guarantee that we don't have anything on the beginning
+				let space_match = line.match(/\s+/);
+				parts[1] = line.substr(space_match.index + space_match[0].length).trimEnd();
+			}
+			
 			result.meta[parts[0]] = parts[1]
 				.search(/^[0-9-.]+$/) == -1 ? parts[1] : parseFloat(parts[1]);
 		}
