@@ -10,6 +10,10 @@ Release template text:
 	```
 
 
+## Next version (unreleased)
+ - Add convenient import aliases
+
+
 ## v1.4.1
  - Bugfix: Fix `cellsize` when scaling
 
