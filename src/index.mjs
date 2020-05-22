@@ -13,5 +13,12 @@ Terrain50.ParseStream = terrain50_parse_stream;
 Terrain50.Merge = terrain50_merge;
 Terrain50.Validate = terrain50_validate;
 
-export { Terrain50 };
+export {
+	Terrain50,
+	terrain50_blank as Blank,
+	terrain50_parse as Parse,
+	terrain50_parse_stream as ParseStream,
+	terrain50_merge as Merge,
+	terrain50_validate as Validate
+};
 export default Terrain50;
