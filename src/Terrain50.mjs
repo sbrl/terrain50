@@ -307,7 +307,7 @@ class Terrain50 {
 		for(let meta_key in this.meta) {
 			if(!Terrain50.ValidMetaHeaderKeys.includes(meta_key)) {
 				errors.push(new Terrain50ValidationMessage("warning", "TW001",
-					`Unknown meta header key ${keys_key}. Valid header keys: ${Terrain50.ValidMetaHeaderKeys.join(", ")}.`
+					`Unknown meta header key ${meta_key}. Valid header keys: ${Terrain50.ValidMetaHeaderKeys.join(", ")}.`
 				));
 			}
 		}

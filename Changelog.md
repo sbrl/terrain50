@@ -10,9 +10,10 @@ Release template text:
 	```
 
 
-## Next version (unreleased)
+## v1.5
  - Add convenient import aliases
  - Fix crash in both ParseStream() and Parse() when passed junk
+ - Terrain50.validate: Fix crash when encountering an invalid metadata key
 
 
 ## v1.4.1
