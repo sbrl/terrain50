@@ -10,6 +10,10 @@ Release template text:
 	```
 
 
+## v1.5.1
+ - `Terrain50.ParseStream`: Allow data values like `1.5106e-05`
+
+
 ## v1.5
  - Add convenient import aliases
  - Fix crash in both ParseStream() and Parse() when passed junk

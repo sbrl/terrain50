@@ -36,7 +36,7 @@ async function* terrain50_parse_stream(stream) {
 		
 		let parts = line.split(/\s+/); 
 		
-		if(line.search(/^[0-9-.]+\s+/) !== -1) {
+		if(line.search(/^[0-9-.e]+\s+/) !== -1) {
 			// It's a data line
 			result.data.push(parts.map(parseFloat));
 		}
