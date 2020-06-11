@@ -3,11 +3,11 @@ This is the master changelog for [`terrain50`](https://npmjs.org/packages/terrai
 
 Release template text:
 
-	Install or update from npm:
+Install or update from npm:
 
-	```bash
-	npm install --save terrain50
-	```
+```bash
+npm install --save terrain50
+```
 
 
 ## v1.5.1
