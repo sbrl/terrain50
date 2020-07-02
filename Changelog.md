@@ -10,6 +10,10 @@ npm install --save terrain50
 ```
 
 
+## v1.6
+ - Add `do_close` argument to `Terrain50.serialise()` to auto-close stream when done (default: false)
+
+
 ## v1.5.1
  - `Terrain50.ParseStream`: Allow data values like `1.5106e-05`
  - Update dependencies

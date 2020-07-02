@@ -3,7 +3,7 @@
 import nnng from 'nnng';
 
 import l from './helpers/Log.mjs';
-import { write_safe } from './helpers/StreamHelpers.mjs';
+import { write_safe, end_safe } from './helpers/StreamHelpers.mjs';
 
 import Terrain50ValidationMessage from './Terrain50ValidationMessage.mjs';
 
@@ -264,16 +264,30 @@ class Terrain50 {
 	
 	/**
 	 * Serialises this Terrain50 and writes it to a stream.
-	 * Note that the stream is *not* closed automatically - this must be done manually.
+	 * Note that the stream is *not* closed automatically by - this must be done manually.
+	 * v1.6 adds the new do_close argument, which for safely auto-closing the stream when done.
 	 * @example
 	 * import fs from 'fs';
 	 * // ....
 	 * let output = fs.createWriteStream("path/to/output.asc");
-	 * my_instance.serialise(output);
-	 * output.end(); // Don't forget to end the stream - this method  doesn't do this automatically
-	 * @param	{stream.Writable}	stream	The writable stream to write it to as we serialise it.
+	 * await my_instance.serialise(output);
+	 * output.end((callback) => { console.log("stream ended successfully")}); // Don't forget to end the stream - this method  doesn't do this automatically
+	 * @example Using promises
+	 * import fs from 'fs';
+	 * // ....
+	 * let output = fs.createWriteStream("path/to/output.asc");
+	 * my_instance.serialise(output).then(() => {
+	 * 	output.end((callback) => { console.log("stream ended successfully")}); // Don't forget to end the stream - this method doesn't do this automatically
+	 * })
+	 * @example Autoclosing
+	 * // terrain50 v1.6+
+	 * // ....
+	 * let output = fs.createWriteStream("path/to/output.asc");
+	 * await my_instance.serialise(output, true);
+	 * @param	{stream.Writable}	stream		The writable stream to write it to as we serialise it.
+	 * @param	{boolean}			do_close	Whether to close the stream after writing (default: true).
 	 */
-	async serialise(stream) {
+	async serialise(stream, do_close = false) {
 		for(let key in this.meta) {
 			await write_safe(stream, `${key} ${this.meta[key]}${this.newline}`);
 		}
@@ -287,6 +301,9 @@ class Terrain50 {
 			await write_safe(stream, this.newline);
 		}
 		l.info(`Seen lengths while serialising: (value → count) ${seen_lengths.map((el) => `${el.value} → ${el.count}`).join(", ")}`);
+		if(do_close) {
+			await end_safe(stream);
+		}
 	}
 	
 	/**
