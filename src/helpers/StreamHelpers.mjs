@@ -31,4 +31,18 @@ function write_safe(stream_out, data) {
 	});
 }
 
-export { write_safe };
+/**
+ * Waits for the given stream to end and finish writing data.
+ * NOTE: This function is not tested and guaranteed yet. (ref #10 the HydroIndexWriter bug)
+ * @param  {stream.Writable} stream            The stream to end.
+ * @param  {Buffer|string} [chunk=undefined] Optional. A chunk to write when calling .end().
+ * @return {Promise}                   A Promise that resolves when writing is complete.
+ */
+function end_safe(stream, chunk = undefined) {
+	return new Promise((resolve, _reject) => {
+		if(typeof chunk == "undefined") stream.end(resolve);
+		else stream.end(chunk, resolve);
+	});
+}
+
+export { write_safe, end_safe };
