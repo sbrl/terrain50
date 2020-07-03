@@ -3,11 +3,18 @@ This is the master changelog for [`terrain50`](https://npmjs.org/packages/terrai
 
 Release template text:
 
+-----
+
 Install or update from npm:
 
 ```bash
 npm install --save terrain50
 ```
+
+-----
+
+## Unreleased
+ - `Terrain50.Parse()`: Ensure that the passed argument is actually a string
 
 
 ## v1.6

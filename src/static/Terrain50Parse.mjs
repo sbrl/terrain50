@@ -17,6 +17,9 @@ import Terrain50 from '../Terrain50.mjs';
  * @return	{Terrain50}	The parsed string as a Terrain50 object.
  */
 function terrain50_parse(str) {
+	if(typeof str != "string")
+		throw new Error(`Error: Terrain50.Parse() can only handle strings (you passed something of type ${typeof str}). For parsing streams see Terrain50.ParseStream().`);
+	
 	let result = new Terrain50();
 	
 	for(let line of str.split(/\r?\n/)) {
