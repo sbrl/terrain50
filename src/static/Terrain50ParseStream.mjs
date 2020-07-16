@@ -16,13 +16,19 @@ import l from '../helpers/Log.mjs';
  * import fs from 'fs';
  * import Terrain50 from 'terrain50';
  * let input_stream = fs.createReadStream("path/to/multiple.asc", "utf-8")
- * for await (let next of Terrain50.ParseStream()) {
+ * for await (let next of Terrain50.ParseStream(input_stream)) {
  * 	console.log(next);
  * }
- * @param	{stream.Readable}		stream	The Stream to read and parse from.
+ * @example Using a regex delimiter
+ * // Warning: Using a regex decreases performance.
+ * for await (let next  of Terrain50.ParseStream(some_stream, /\s+/)) {
+ * 	console.log(next);
+ * }
+ * @param	{stream.Readable}	stream	The Stream to read and parse from.
+ * @param	{RegExp|string}		[values_delimiter=" "]	The delimiter to use when parsing data. Default: a string. Set to the regex /\s+/ to improve performance.
  * @return	{Generator<Terrain50>}	A generator that may emit (at least) 1 or more Terrain50 objects. If no data is found, an empty Terrain50 object is returned.
  */
-async function* terrain50_parse_stream(stream) {
+async function* terrain50_parse_stream(stream, values_delimiter = " ") {
 	let reader = nexline({ input: stream });
 	
 	let result = new Terrain50();
@@ -34,7 +40,7 @@ async function* terrain50_parse_stream(stream) {
 		line = line.trim();
 		if(line.length == 0) continue;
 		
-		let parts = line.split(/\s+/); 
+		let parts = line.split(values_delimiter); 
 		
 		if(line.search(/^[0-9-.e]+\s+/) !== -1) {
 			// It's a data line

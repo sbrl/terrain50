@@ -13,9 +13,12 @@ npm install --save terrain50
 
 -----
 
-## Unreleased
- - `Terrain50.Parse()`: Ensure that the passed argument is actually a string
 
+## v1.7
+ - `Terrain50.Parse()`: Ensure that the passed argument is actually a string
+ - `Terrain50.ParseStream()`:
+     - Use a single space in a string as the default delimiter to improve performance (using a regex such as `/\s+/` is still supported via the new `values_delimiter` parameter).
+     - Fix code in example
 
 ## v1.6
  - Add `do_close` argument to `Terrain50.serialise()` to auto-close stream when done (default: false)
