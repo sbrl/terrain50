@@ -2,6 +2,8 @@
 
 import Terrain50 from '../Terrain50.mjs';
 
+import l from '../helpers/Log.mjs';
+
 /**
  * Return a map of the frequencies of the data values in 1 or more Terrain50 instances.
  * @example Single instance
@@ -16,11 +18,11 @@ import Terrain50 from '../Terrain50.mjs';
  * @param	{boolean}		ignore_nodata	Whether to ignore NODATA values (default: false)
  * @return	{Promise<Map>}	A key → value map of frequencies in the form Math.floor(data_value) → number of occurrencies
  */
-async function terrain50_analyse_frequencies(input, ignore_nodata) {
+async function terrain50_analyse_frequencies(input, ignore_nodata, quiet = false) {
 	if(input instanceof Terrain50)
 		return input.analyse_frequencies();
 	
-	let result = new Map();
+	let result = new Map(), i = 1;
 	for await (let next of input) {
 		// Analyse the frequencies of the next one in the sequence
 		let next_map = next.analyse_frequencies(ignore_nodata);
@@ -32,6 +34,9 @@ async function terrain50_analyse_frequencies(input, ignore_nodata) {
 			result.set(key, result.get(key) + value);
 		}
 		next_map.clear();
+		
+		if(!quiet) l.info(`Analysed ${i} items so far`);
+		i++;
 	}
 	return result;
 }
