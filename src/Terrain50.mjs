@@ -196,10 +196,14 @@ class Terrain50 {
 	 * Values are rounded down before being counted.
 	 * @return	{Map}	A key → value map of data values → count that they occur.
 	 */
-	analyse_frequencies() {
+	analyse_frequencies(ignore_nodata = false) {
 		let result = new Map();
 		for(let row of this.data) {
 			for(let value of row) {
+				// Optionally ignore NODATA values
+				if(ignore_nodata && value == this.meta.NODATA_value)
+					continue;
+				// Round it down and count it
 				let val_floor = Math.floor(value);
 				if(!result.has(val_floor))
 					result.set(val_floor, 0);

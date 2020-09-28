@@ -13,6 +13,10 @@ npm install --save terrain50
 
 -----
 
+
+## v1.8.1
+ - Add new `ignore_nodata` argument to the new methods introducted in v1.8
+
 ## v1.8
  - Add `terrain50_instance.analyse_frequencies()` for data value frequency analysis
  - Add `Terrain50.AnalayseFrequencies()`
