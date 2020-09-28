@@ -192,6 +192,32 @@ class Terrain50 {
 	}
 	
 	/**
+	 * Analyses the frequency of the data values in this Terrain50 instance.
+	 * Values are rounded down before being counted.
+	 * @return	{Map}	A key → value map of data values → count that they occur.
+	 */
+	analyse_frequencies() {
+		let result = new Map();
+		for(let row of this.data) {
+			for(let value of row) {
+				let val_floor = Math.floor(value);
+				if(!result.has(val_floor))
+					result.set(val_floor, 0);
+				result.set(val_floor, result.get(val_floor) + 1);
+			}
+		}
+		return result;
+	}
+	
+	/*
+	 * ███████  ██████  █████  ██      ███████
+	 * ██      ██      ██   ██ ██      ██
+	 * ███████ ██      ███████ ██      █████
+	 *      ██ ██      ██   ██ ██      ██
+	 * ███████  ██████ ██   ██ ███████ ███████
+	 */
+	
+	/**
 	 * Scales the *resolution* of this Terrain50 instance by a given scale factor.
 	 * The bounding box will not change.
 	 * @param  {number} scale_factor The scale factor to apply.
@@ -305,6 +331,14 @@ class Terrain50 {
 			await end_safe(stream);
 		}
 	}
+	
+	/*
+	 * ██    ██  █████  ██      ██ ██████   █████  ████████ ███████
+	 * ██    ██ ██   ██ ██      ██ ██   ██ ██   ██    ██    ██
+	 * ██    ██ ███████ ██      ██ ██   ██ ███████    ██    █████
+	 *  ██  ██  ██   ██ ██      ██ ██   ██ ██   ██    ██    ██
+	 *   ████   ██   ██ ███████ ██ ██████  ██   ██    ██    ███████
+	 */
 	
 	/**
 	 * Validates this Terrain50 instance.
