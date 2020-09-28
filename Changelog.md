@@ -13,7 +13,7 @@ npm install --save terrain50
 
 -----
 
-## v1.8 (unreleased)
+## v1.8
  - Add `terrain50_instance.analyse_frequencies()` for data value frequency analysis
  - Add `Terrain50.AnalayseFrequencies()`
 
