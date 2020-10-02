@@ -13,6 +13,9 @@ npm install --save terrain50
 
 -----
 
+## v1.8.3
+ - Allow the character `e` when validating with `Terrain50.Validate(string)` to allow for very small numbers
+
 
 ## v1.8.2
  - Add new `quiet` argument to `Terrain50.AnalyseFrequencies()`

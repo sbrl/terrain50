@@ -40,7 +40,7 @@ function terrain50_validate(str) {
 		
 		let parts = line.split(/\s+/);
 		
-		if(line.search(/^[0-9-.]+\s+/) !== -1) {
+		if(line.search(/^[0-9-.e]+\s+/) !== -1) {
 			// It's a data line
 			if(col_count === null) col_count = parts.length;
 			if(!col_counts_seen.includes(parts.length))
