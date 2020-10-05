@@ -40,10 +40,10 @@ function write_safe(stream_out, data) {
  * @return {Promise}                   A Promise that resolves when writing is complete.
  * @private
  */
-function end_safe(stream, chunk = undefined) {
+function end_safe(stream) {
 	return new Promise((resolve, _reject) => {
-		if(typeof chunk == "undefined") stream.end(resolve);
-		else stream.end(chunk, resolve);
+		stream.once("finish", resolve);
+		stream.end();
 	});
 }
 
