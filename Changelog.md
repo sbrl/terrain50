@@ -13,7 +13,7 @@ npm install --save terrain50
 
 -----
 
-## v1.8.4 (unreleased)
+## v1.8.4
  - Fix scaling down inputs that contain NODATA values
 
 
