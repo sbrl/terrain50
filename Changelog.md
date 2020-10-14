@@ -13,6 +13,10 @@ npm install --save terrain50
 
 -----
 
+## v1.8.4 (unreleased)
+ - Fix scaling down inputs that contain NODATA values
+
+
 ## v1.8.3
  - Allow the character `e` when validating with `Terrain50.Validate(string)` to allow for very small numbers
 
