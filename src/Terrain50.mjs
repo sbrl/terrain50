@@ -254,7 +254,7 @@ class Terrain50 {
 			for(let x = 0; x < this.data[y].length; x += numbers_per_group) {
 				// Extract the values to average for this cell
 				let values_cell = [];
-				for(let y_scan = y; y_scan < y + numbers_per_group; y_scan++) {}
+				for(let y_scan = y; y_scan < y + numbers_per_group; y_scan++)
 					values_cell.push(...this.data[y_scan].slice(x, x + numbers_per_group));
 				
 				values_row.push(values_cell);
