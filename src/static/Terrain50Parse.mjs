@@ -1,6 +1,7 @@
 "use strict";
 
 import Terrain50 from '../Terrain50.mjs';
+import l from '../helpers/Log.mjs';
 
 /**
  * Parses a Terrain50 instance from a string.
