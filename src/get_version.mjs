@@ -7,9 +7,9 @@ const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf("/"));
 async function get_version() {
 	const filename_packagejson = path.join(__dirname, "../package.json");
 	
-	const package = JSON.parse(await fs.promises.readFile(filename_packagejson, "utf-8"));
+	const obj = JSON.parse(await fs.promises.readFile(filename_packagejson, "utf-8"));
 	
-	return package.version;
+	return obj.version;
 }
 
 export default get_version;
