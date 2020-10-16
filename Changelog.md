@@ -14,8 +14,10 @@ npm install --save terrain50
 -----
 
 
-## v1.8.5 (unreleased)
+## v1.9
  - Fix crash in parser
+ - Fix crash when scaling down
+ - Add new `get_version` function to main exports
 
 
 ## v1.8.4

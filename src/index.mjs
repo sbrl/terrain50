@@ -1,5 +1,7 @@
 "use strict";
 
+import get_version from './get_version.mjs';
+
 import Terrain50 from './Terrain50.mjs';
 import terrain50_blank from './static/Terrain50Blank.mjs';
 import terrain50_parse from './static/Terrain50Parse.mjs';
@@ -21,6 +23,7 @@ export {
 	terrain50_parse as Parse,
 	terrain50_parse_stream as ParseStream,
 	terrain50_merge as Merge,
-	terrain50_validate as Validate
+	terrain50_validate as Validate,
+	get_version
 };
 export default Terrain50;
