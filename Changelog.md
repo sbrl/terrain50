@@ -14,6 +14,10 @@ npm install --save terrain50
 -----
 
 
+## v1.9.2
+ - Fix disappearing NODATA values on downscale 
+
+
 ## v1.9.1
  - Fix reserved word
 

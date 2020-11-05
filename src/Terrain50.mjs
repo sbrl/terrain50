@@ -257,13 +257,17 @@ class Terrain50 {
 				for(let y_scan = y; y_scan < y + numbers_per_group; y_scan++)
 					values_cell.push(...this.data[y_scan].slice(x, x + numbers_per_group));
 				
-				values_row.push(values_cell);
+				values_cell = values_cell.filter((x) => x !== this.meta.NODATA_value);
+				if(values_cell.length == 0)
+					values_cell.push(this.meta.NODATA_value);
+				
+				values_row.push();
 			}
 			
 			// Average all the values in this row & then push them into the new data array
 			new_data.push(values_row
 				.map((values) =>
-					values.filter((x) => x !== this.meta.NODATA_value)
+					values
 						.reduce((t, x) => t + x, 0) / values.length
 				)
 			);
