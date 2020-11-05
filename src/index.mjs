@@ -16,7 +16,7 @@ import terrain50_analyse_frequencies from './static/Terrain50AnalyseFrequencies.
  */
 async function get_version() {
 	let filename = './get_version'+'.mjs';
-	return await import(filename).default();
+	return await (await import(filename)).default();
 }
 
 Terrain50.Blank = terrain50_blank;
