@@ -15,7 +15,7 @@ import terrain50_analyse_frequencies from './static/Terrain50AnalyseFrequencies.
  * @return	{string}	The current version of the terrain50 library.
  */
 async function get_version() {
-	let filename = './get_version'+'.mjs'
+	let filename = './get_version'+'.mjs';
 	return await import(filename).default();
 }
 
