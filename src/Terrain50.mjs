@@ -261,7 +261,7 @@ class Terrain50 {
 				if(values_cell.length == 0)
 					values_cell.push(this.meta.NODATA_value);
 				
-				values_row.push();
+				values_row.push(values_cell);
 			}
 			
 			// Average all the values in this row & then push them into the new data array
