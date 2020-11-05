@@ -15,7 +15,7 @@ npm install --save terrain50
 
 
 ## v1.9.2
- - Fix disappearing NODATA values on downscale 
+ - Fix disappearing NODATA values when downscaling 
 
 
 ## v1.9.1
