@@ -2,7 +2,7 @@
 
 /**
  * Writes data to a stream, automatically waiting for the drain event if asked.
- * See also write_safe.
+ * See also end_safe.
  * @param	{stream.Writable}			stream_out	The writable stream to write to.
  * @param	{string|Buffer|Uint8Array}	data		The data to write.
  * @return	{Promise}	A promise that resolves when writing is complete.
