@@ -116,6 +116,12 @@ class Terrain50 {
 	
 	/**
 	 * Scans this Terrain50 instance and replaces all instance of a given value with another.
+	 * Be careful of floating-point values - values 10.1 and 10 for example are
+	 * considered different.
+	 * @example
+	 * let instance = Terrain50.Parse(some_string);
+	 * // Replace all instances of 10 with 20.
+	 * instance.replace(10, 20);
 	 * @param  {number} old_value The value to search for.
 	 * @param  {number} new_value THe value to replace it with.
 	 */
