@@ -448,7 +448,7 @@ Terrain50.ValidMetaHeaderKeys = [
 ];
 
 /**
- * AN array of required metadata header keys.
+ * An array of required metadata header keys.
  * SHould be a subset of Terrain50.ValidMetaHeaderKeys.
  * @type {Array}
  */
