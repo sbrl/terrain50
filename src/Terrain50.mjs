@@ -75,6 +75,8 @@ class Terrain50 {
 	/**
 	 * Finds and returns the max value in the data 2d array.
 	 * Ignores NODATA values.
+	 * @example
+	 * console.log(`The maximum value is `, my_terrain50_instance.max_value);
 	 * @return {number} The maximum value.
 	 */
 	get max_value() {
@@ -86,6 +88,8 @@ class Terrain50 {
 	/**
 	 * Finds and returns the min value in the data 2d array.
 	 * Ignores NODATA values.
+	 * @example
+	 * console.log(`The minimum value is `, my_terrain50_instance.min_value);
 	 * @return {number} The minimum value.
 	 */
 	get min_value() {
