@@ -1,5 +1,5 @@
 # Changelog
-This is the master changelog for [`terrain50`](https://npmjs.org/packages/terrain50).
+This is the master changelog for [`terrain50`](https://npmjs.org/package/terrain50).
 
 Release template text:
 
