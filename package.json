@@ -30,10 +30,10 @@
 	],
 	"homepage": "https://github.com/sbrl/terrain50#readme",
 	"dependencies": {
-		"nexline": "^1.2.1",
+		"nexline": "^1.2.2",
 		"nnng": "^1.0.0"
 	},
 	"devDependencies": {
-		"documentation": "^13.0.2"
+		"documentation": "^13.1.0"
 	}
 }
