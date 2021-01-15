@@ -16,6 +16,7 @@ npm install --save terrain50
 
 ## v1.9.4 (unreleased)
  - Add more examples to documentation (this shows immediately in the [api docs](https://starbeamrainbowlabs.com/code/terrain50/))
+ - Update dependencies
 
 
 ## v1.9.3
