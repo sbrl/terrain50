@@ -14,6 +14,11 @@ npm install --save terrain50
 -----
 
 
+## v1.10 (unreleased)
+ - `.scale()`, `.shift()`: Don't alter NODATA values
+ - `.min_value`, `.max_value`: Allow setting to update underlying 2d array
+
+
 ## v1.9.7
  - Add more examples to documentation (this shows immediately in the [api docs](https://starbeamrainbowlabs.com/code/terrain50/))
  - Update dependencies

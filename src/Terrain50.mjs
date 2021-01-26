@@ -86,6 +86,26 @@ class Terrain50 {
 		), -Infinity);
 	}
 	/**
+	 * Sets the maximum value in the data 2d array.
+	 * Any values higher than the given new maximum value (excluding NODATA
+	 * values, of course) will be set to the given maximum value.
+	 * @example
+	 * my_instance.max_value = 10;
+	 * // No values (except NODATA values) will now be greater than 10
+	 * assert.ok(my_instance.max_value <= 10);
+	 * @param	{number}	new_max	The new maximum value
+	 * @return	{void}
+	 */
+	set max_value(new_max) {
+		for(let row of this.data) {
+			for(let i = 0; i < row.length; i++) {
+				if(row[i] == this.meta.NODATA_value)
+					continue;
+				row[i] = Math.min(row[i], new_max);
+			}
+		}
+	}
+	/**
 	 * Finds and returns the min value in the data 2d array.
 	 * Ignores NODATA values.
 	 * @example
@@ -98,6 +118,26 @@ class Terrain50 {
 			...row.filter((x) => x !== this.meta.NODATA_value)
 		), Infinity);
 	}
+	/**
+	 * Sets the minimum value in the data 2d array.
+	 * Any values lower than the given new minimum value (excluding NODATA
+	 * values, of course) will be set to the given minimum value.
+	 * @example
+	 * my_instance.min_value = 3;
+	 * // No values (except NODATA values) will now be lower than 3
+	 * assert.ok(my_instance.min_value >= 3);
+	 * @param	{number}	new_min	The new minimum value
+	 * @return	{void}
+	 */
+	set min_value(new_min) {
+		for(let row of this.data) {
+			for(let i = 0; i < row.length; i++) {
+				if(row[i] == this.meta.NODATA_value)
+					continue;
+				row[i] = Math.max(row[i], new_min);
+			}
+		}
+	}
 	
 	/**
 	 * Shifts the values in this Terrain50 instance such that the minimum value is a given value.
@@ -108,6 +148,9 @@ class Terrain50 {
 		let shift_amount = new_min - this.min_value;
 		for(let row of this.data) {
 			for(let i = 0; i < row.length; i++) {
+				if(row[i] == this.meta.NODATA_value)
+					continue;
+				
 				row[i] += shift_amount;
 			}
 		}
@@ -148,6 +191,9 @@ class Terrain50 {
 	round() {
 		for(let row of this.data) {
 			for(let i = 0; i < row.length; i++) {
+				if(row[i] == this.meta.NODATA_value)
+					continue;
+				
 				row[i] = Math.round(row[i]);
 			}
 		}
