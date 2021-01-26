@@ -2,7 +2,7 @@
 
 > Library for parsing Ordnance Survey Digital Elevation Model files
 
-I'm handing a number of different Ordnance Survey Digital Elevation Model files as part of my PhD. This library is the result of the surprisingly extensive code I wrote to handle them.
+I'm handing a number of different Ordnance Survey Digital Elevation Model files (in the [ASCII Esri Grid format](https://en.wikipedia.org/wiki/Esri_grid) as far as I understand) as part of my PhD. This library is the result of the surprisingly extensive code I wrote to handle them.
 
 While it's a relatively simple format to understand, it's completely terrible for disk space usage:
 
