@@ -16,7 +16,8 @@
 		"digital",
 		"elevation",
 		"model",
-		"parsing"
+		"parsing",
+		"esri"
 	],
 	"author": "Starbeamrainbowlabs",
 	"license": "MPL-2.0",
