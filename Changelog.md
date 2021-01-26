@@ -14,7 +14,7 @@ npm install --save terrain50
 -----
 
 
-## v1.10 (unreleased)
+## v1.10
  - `.scale()`, `.shift()`: Don't alter NODATA values
  - `.min_value`, `.max_value`: Allow setting to update underlying 2d array
 
