@@ -1,6 +1,6 @@
 {
 	"name": "terrain50",
-	"version": "1.9.7",
+	"version": "1.10.0",
 	"description": "Library for parsing Ordnance Survey Digital Elevation Model files",
 	"main": "src/index.mjs",
 	"scripts": {
