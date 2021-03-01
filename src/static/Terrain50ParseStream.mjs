@@ -25,7 +25,7 @@ import l from '../helpers/Log.mjs';
  * 	console.log(next);
  * }
  * @param	{stream.Readable}	stream	The Stream to read and parse from.
- * @param	{RegExp|string}		[values_delimiter=" "]	The delimiter to use when parsing data. Default: a string. Set to the regex /\s+/ to improve performance.
+ * @param	{RegExp|string}		[values_delimiter=" "]	The delimiter to use when parsing data. Default: a single space character. Set to the regex /\s+/ to improve tolerance, but reduce performance.
  * @return	{Generator<Terrain50>}	A generator that may emit (at least) 1 or more Terrain50 objects. If no data is found, a single empty Terrain50 object is emitted by the generator.
  */
 async function* terrain50_parse_stream(stream, values_delimiter = " ") {
