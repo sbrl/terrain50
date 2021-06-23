@@ -32,7 +32,26 @@ npm install terrain50 --save
 
 
 ## Usage
-The full API documentation can be found here: (TODO: Insert a link here)
+The full API documentation can be found here: <https://starbeamrainbowlabs.com/code/terrain50/>
+
+Basic usage:
+
+```js
+import fs from 'fs';
+import Terrain50 from 'terrain50';
+
+(async () => {
+    "use strict";
+    
+    let new_instance = Terrain50.Parse(
+        fs.readFileSync("path/to/file.asc", "utf-8")
+    );
+    
+    new_instance.scale(2);
+    let output = fs.createWriteStream("path/to/output.asc");
+    await my_instance.serialise(output);
+})();
+```
 
 
 ## Read-world use
