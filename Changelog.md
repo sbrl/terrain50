@@ -14,9 +14,9 @@ npm install --save terrain50
 -----
 
 
-## v1.10.1 (unreleased)
+## v1.10.1
  - Fix errors in documentation
- - Update development dependencies
+ - Update dependencies
 
 
 ## v1.10
