@@ -12,14 +12,14 @@ import l from '../helpers/Log.mjs';
  * 
  * See also `Terrain50.Merge()` for merging multiple instances (format 
  * restrictions apply).
- * @example
+ * @example <caption>Basic usage</caption>
  * import fs from 'fs';
  * import Terrain50 from 'terrain50';
  * let input_stream = fs.createReadStream("path/to/multiple.asc", "utf-8")
  * for await (let next of Terrain50.ParseStream(input_stream)) {
  * 	console.log(next);
  * }
- * @example Using a regex delimiter
+ * @example <caption>Using a regex delimiter</caption>
  * // Warning: Using a regex decreases performance.
  * for await (let next  of Terrain50.ParseStream(some_stream, /\s+/)) {
  * 	console.log(next);
