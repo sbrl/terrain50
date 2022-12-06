@@ -21,7 +21,7 @@ import l from '../helpers/Log.mjs';
  * }
  * @example <caption>Using a regex delimiter</caption>
  * // Warning: Using a regex decreases performance.
- * for await (let next  of Terrain50.ParseStream(some_stream, /\s+/)) {
+ * for await (let next of Terrain50.ParseStream(some_stream, /\s+/)) {
  * 	console.log(next);
  * }
  * @param	{stream.Readable}	stream	The Stream to read and parse from.
