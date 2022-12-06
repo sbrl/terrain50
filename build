@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Make sure the current directory is the location of this script to simplify matters
-cd "$(dirname $(readlink -f $0))";
+cd "$(dirname "$(readlink -f "$0")")" || { echo "Error: Failed to cd to script directory" >&2; exit 1; };
 ################
 ### Settings ###
 ################
@@ -30,11 +30,13 @@ deploy_root_dir="terrain50";
 # Check out the lantern git submodule if needed
 if [ ! -f "${lantern_path}/lantern.sh" ]; then git submodule update --init "${lantern_path}"; fi
 
+#shellcheck disable=SC1090
 source "${lantern_path}/lantern.sh";
 
 if [[ "$#" -lt 1 ]]; then
 	echo -e "${FBLE}${project_name}${RS} build script";
 	echo -e "    by Starbeamrainbowlabs";
+	#shellcheck disable=SC2154
 	echo -e "${LC}Powered by the lantern build engine, v${version}${RS}";
 	echo -e "";
 	echo -e "${CSECTION}Usage${RS}";
@@ -105,6 +107,7 @@ task_docs-watch() {
 	while :; do # : = infinite loop
 		# Wait for an update
 		# inotifywait's non-0 exit code forces an exit for some reason :-/
+		#shellcheck disable=SC2046
 		inotifywait -qr --event modify --format '%:e %f' $(find . -iname "*.mjs" -not -path "./node_modules/*") ./docs.css;
 		
 		# Rebuild the docs
@@ -176,4 +179,4 @@ task_ci() {
 
 ###############################################################################
 
-tasks_run $@;
+tasks_run "$@";
