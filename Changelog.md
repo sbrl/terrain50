@@ -14,7 +14,7 @@ npm install --save terrain50
 -----
 
 
-## v1.11 (unreleased)
+## v1.11 (6th December 2022)
  - Add `.to_json()` to convert a Terrain50 instance to an object for JSON serialisation.
  - Add static method `Terrain50.FromJson()` to convert a JSON-serialised 
  - Update development dependencies
