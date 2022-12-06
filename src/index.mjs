@@ -7,6 +7,7 @@ import terrain50_parse_stream from './static/Terrain50ParseStream.mjs';
 import terrain50_merge from './static/Terrain50Merge.mjs';
 import terrain50_validate from './static/Terrain50Validate.mjs';
 import terrain50_analyse_frequencies from './static/Terrain50AnalyseFrequencies.mjs';
+import terrain50_from_json from './static/Terrain50FromJson.mjs';
 
 // HACK: This function prevents the documentation generator from seeing the __dirname hack, which causes it to crash
 
@@ -25,6 +26,7 @@ Terrain50.ParseStream = terrain50_parse_stream;
 Terrain50.Merge = terrain50_merge;
 Terrain50.Validate = terrain50_validate;
 Terrain50.AnalyseFrequencies = terrain50_analyse_frequencies;
+Terrain50.FromJson = terrain50_from_json;
 
 export {
 	Terrain50,
@@ -33,6 +35,7 @@ export {
 	terrain50_parse_stream as ParseStream,
 	terrain50_merge as Merge,
 	terrain50_validate as Validate,
+	terrain50_from_json as FromJson,
 	get_version
 };
 export default Terrain50;

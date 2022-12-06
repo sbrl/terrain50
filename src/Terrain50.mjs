@@ -488,6 +488,28 @@ class Terrain50 {
 			properties: Object.assign({}, this.meta) // Shallow clone
 		}
 	}
+	
+	/**
+	 * Returns an object suitable for json serialisation.
+	 * See also the Terrain50.FromJson() static method for parsing these objects back into a Terrain50 instance.
+	 * @return	{Object}	An new object (**not** a mutation) that represents this Terrain50 instance that is suitable for JSON serialisation.
+	 * @example <caption>Example usage</caption>
+	 * import Terrain50 from 'terrain50';
+	 * 
+	 * // .....
+	 * 
+	 * const my_terrain = Terrain50.Parse(some_string);
+	 * 
+	 * console.log(my_terrain.to_json());
+	 * some_file_or_socket.write(JSON.serialise(my_terrain.to_json()));
+	 */
+	to_json() {
+		return {
+			meta: this.meta,
+			data: this.data,
+			newline: this.newline
+		}
+	}
 }
 
 /**
